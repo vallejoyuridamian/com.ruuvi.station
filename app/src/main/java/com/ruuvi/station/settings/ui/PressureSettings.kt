@@ -25,7 +25,7 @@ fun PressureSettings(
     val accuracy = viewModel.pressureAccuracy.observeAsState(Accuracy.Accuracy2)
 
     PageSurfaceWithPadding {
-        Column() {
+        Column {
             PressureUnit(
                 allUnits = viewModel.getAllPressureUnits(),
                 selectedUnit = unit,

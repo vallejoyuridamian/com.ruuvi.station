@@ -41,7 +41,7 @@ class ComplexWidgetConfigureActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein: Kodein by closestKodein()
 
-    private val viewModel: ComplexWidgetConfigureViewModel by viewModel() {
+    private val viewModel: ComplexWidgetConfigureViewModel by viewModel {
         appWidgetId = intent.extras?.getInt(
             AppWidgetManager.EXTRA_APPWIDGET_ID,
             AppWidgetManager.INVALID_APPWIDGET_ID
@@ -67,7 +67,7 @@ class ComplexWidgetConfigureActivity : AppCompatActivity(), KodeinAware {
 
         setContent {
             RuuviTheme {
-                Column() {
+                Column {
                     WidgetConfigTopAppBar(viewModel, title = stringResource(id = R.string.select_sensor))
                     WidgetSetupScreen(viewModel)
                 }
@@ -129,7 +129,7 @@ fun SelectSensorsScreen(viewModel: ComplexWidgetConfigureViewModel) {
     val sensors by viewModel.widgetItems.observeAsState(listOf())
     val gotFilteredSensors by viewModel.gotFilteredSensors.observeAsState(false)
 
-    LazyColumn() {
+    LazyColumn {
         item {
             if (gotFilteredSensors) {
                 Paragraph(
@@ -139,7 +139,7 @@ fun SelectSensorsScreen(viewModel: ComplexWidgetConfigureViewModel) {
             }
         }
 
-        if (sensors?.isNotEmpty() == true) {
+        if (sensors.isNotEmpty() == true) {
             itemsIndexed(items = sensors) { _, item ->
                 SensorSettingsCard(
                     viewModel = viewModel,
@@ -154,7 +154,7 @@ fun SelectSensorsScreen(viewModel: ComplexWidgetConfigureViewModel) {
 @Composable
 fun SensorSettingsCard(viewModel: ComplexWidgetConfigureViewModel, item: ComplexWidgetSensorItem) {
     Timber.d("SensorSettingsCard $item")
-    Column() {
+    Column {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -187,7 +187,7 @@ fun SensorSettingsCard(viewModel: ComplexWidgetConfigureViewModel, item: Complex
 fun WidgetTypeList(viewModel: ComplexWidgetConfigureViewModel, item: ComplexWidgetSensorItem) {
     Timber.d("WidgetTypeList")
     Column(modifier = Modifier.padding(start = RuuviStationTheme.dimensions.extraBig)) {
-        Row() {
+        Row {
             Paragraph(
                 text = stringResource(id = R.string.widgets_select_sensor_value_type),
                 modifier = Modifier.padding(RuuviStationTheme.dimensions.medium)

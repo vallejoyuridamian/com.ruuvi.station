@@ -85,7 +85,7 @@ class ShareSensorActivity : AppCompatActivity(R.layout.activity_share_sensor) , 
                         if (!it.message.isNullOrEmpty()) {
                             Snackbar.make(
                                 binding.sensorRecipientsListView,
-                                it.message ?: "",
+                                    it.message,
                                 Snackbar.LENGTH_SHORT
                             ).show()
                         }

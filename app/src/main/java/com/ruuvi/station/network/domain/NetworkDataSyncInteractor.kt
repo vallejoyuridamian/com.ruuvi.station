@@ -91,7 +91,7 @@ class NetworkDataSyncInteractor (
         }
 
         setSyncInProgress(true)
-        syncJob = CoroutineScope(IO).launch() {
+        syncJob = CoroutineScope(IO).launch {
             try {
                 networkRequestExecutor.executeScheduledRequests()
                 if (!networkRequestExecutor.anySettingsRequests()) {

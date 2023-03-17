@@ -567,7 +567,7 @@ class TagDetailsActivity : AppCompatActivity(R.layout.activity_tag_details), Kod
         }
 
         override fun getPageTitle(position: Int): String {
-            return tags.elementAtOrNull(position)?.displayName?.toUpperCase(Locale.getDefault()) ?: ""
+            return tags.elementAtOrNull(position)?.displayName?.uppercase(Locale.getDefault()) ?: ""
         }
 
         override fun getItemPosition(`object`: Any): Int {

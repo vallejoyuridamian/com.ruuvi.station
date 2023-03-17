@@ -139,6 +139,28 @@ class Preferences constructor(val context: Context) {
             sharedPreferences.edit().putString(PREF_BACKEND, url).apply()
         }
 
+    // Coolgreen modifications
+    var mqttDataForwardingUrl: String
+        get() = sharedPreferences.getString(PREF_MQTT_BACKEND, DEFAULT_MQTT_DATA_FORWARDING_URL)
+                ?: DEFAULT_MQTT_DATA_FORWARDING_URL
+        set(url) {
+            sharedPreferences.edit().putString(PREF_MQTT_BACKEND, url).apply()
+        }
+
+    var mqttDataForwardingPort: String
+        get() = sharedPreferences.getString(PREF_MQTT_PORT, DEFAULT_MQTT_DATA_FORWARDING_PORT)
+                ?: DEFAULT_MQTT_DATA_FORWARDING_PORT
+        set(url) {
+            sharedPreferences.edit().putString(PREF_MQTT_PORT, url).apply()
+        }
+
+    var mqttDataForwardingEnabled: Boolean
+        get() = sharedPreferences.getBoolean(PREF_MQTT_ENABLED, false)
+        set(mqttDataForwardingEnabled) {
+            sharedPreferences.edit().putBoolean(PREF_MQTT_ENABLED, mqttDataForwardingEnabled).apply()
+        }
+
+
     var dataForwardingLocationEnabled: Boolean
         get() = sharedPreferences.getBoolean(PREF_BACKEND_LOCATION, false)
         set(locationEnabled) {
@@ -324,6 +346,10 @@ class Preferences constructor(val context: Context) {
         private const val PREF_BACKEND_LOCATION = "pref_backend_location"
         private const val PREF_BACKEND_FORWARDING_DURING_SYNC =
             "pref_backend_forwarding_during_sync"
+        // Coolgreen modifications
+        private const val PREF_MQTT_BACKEND = "pref_mqtt_backend"
+        private const val PREF_MQTT_PORT = "pref_mqtt_port"
+        private const val PREF_MQTT_ENABLED = "pref_mqtt_enabled"
         private const val PREF_DEVICE_ID = "pref_device_id"
         private const val PREF_WAKELOCK = "pref_wakelock"
         private const val PREF_DASHBOARD_ENABLED = "DASHBOARD_ENABLED_PREF"
@@ -345,6 +371,8 @@ class Preferences constructor(val context: Context) {
 
         private const val DEFAULT_TEMPERATURE_UNIT = "C"
         private const val DEFAULT_DATA_FORWARDING_URL = ""
+        private const val DEFAULT_MQTT_DATA_FORWARDING_URL = ""
+        private const val DEFAULT_MQTT_DATA_FORWARDING_PORT = ""
         private const val DEFAULT_DEVICE_ID = ""
         private const val DEFAULT_GRAPH_POINT_INTERVAL = 1
         private const val DEFAULT_GRAPH_VIEW_PERIOD = 24

@@ -28,7 +28,7 @@ fun ChartSettings(
     val initialValue = numberOfDaysOptions.firstOrNull { it.value == numberOfDays.value }
 
     PageSurfaceWithPadding {
-        Column() {
+        Column {
             SwitchRuuvi(
                 text = stringResource(id = R.string.settings_chart_all_points),
                 checked = displayAllPoint.value,

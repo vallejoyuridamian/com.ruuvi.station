@@ -19,7 +19,7 @@ fun CloudSettings(
     val cloudModeEnabled = viewModel.cloudModeEnabled.collectAsState()
 
     PageSurfaceWithPadding {
-        Column() {
+        Column {
             SwitchRuuvi(
                 text = stringResource(id = R.string.cloud_only_mode),
                 checked = cloudModeEnabled.value,

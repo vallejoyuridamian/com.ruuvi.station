@@ -15,6 +15,8 @@ object SettingsInjectionModule {
 
         bind<DataForwardingSettingsViewModel>() with provider { DataForwardingSettingsViewModel(instance()) }
 
+        bind<MQTTDataForwardingSettingsViewModel>() with provider { MQTTDataForwardingSettingsViewModel(instance()) }
+
         bind<AppSettingsPressureUnitViewModel>() with provider { AppSettingsPressureUnitViewModel(instance()) }
 
         bind<AppSettingsTemperatureUnitViewModel>() with provider { AppSettingsTemperatureUnitViewModel(instance()) }

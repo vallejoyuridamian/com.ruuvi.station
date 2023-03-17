@@ -75,6 +75,32 @@ class PreferencesRepository(
         preferences.dataForwardingDuringSyncEnabled = forwardingDuringSyncEnabled
     }
 
+    fun getMQTTDataForwardingUrl(): String =
+        preferences.mqttDataForwardingUrl
+
+    fun setMQTTDataForwardingUrl(url: String) {
+        preferences.mqttDataForwardingUrl = url
+    }
+
+    fun getMQTTDataForwardingPort(): String =
+            preferences.mqttDataForwardingPort
+
+    fun setMQTTDataForwardingPort(port: String) {
+        preferences.mqttDataForwardingPort = port
+    }
+
+    fun getMQTTDataForwardingEnabled(): Boolean =
+            preferences.mqttDataForwardingEnabled
+
+    fun setMQTTDataForwardingEnabled(mqttDataForwardingEnabled: Boolean) {
+        preferences.mqttDataForwardingEnabled = mqttDataForwardingEnabled
+    }
+
+
+
+
+
+
     fun getDeviceId(): String {
         var deviceId = preferences.deviceId
         if (deviceId.isEmpty()) {

@@ -34,7 +34,7 @@ fun SettingsList(
     viewModel: AppSettingsListViewModel
 ) {
     val context = LocalContext.current
-    BackHandler() {
+    BackHandler {
         if (viewModel.shouldRestartApp()) {
             StartupActivity.start(context, false)
         }
@@ -116,6 +116,15 @@ fun SettingsList(
                 name = stringResource(id = R.string.settings_data_forwarding),
                 description = null,
                 onClick = { onNavigate.invoke(UiEvent.Navigate(SettingsRoutes.DATAFORWARDING)) }
+            )
+        }
+
+        // Coolgreen modification
+        item {
+            SettingsElement(
+                    name = stringResource(id = R.string.settings_mqtt_data_forwarding),
+                    description = null,
+                    onClick = { onNavigate.invoke(UiEvent.Navigate(SettingsRoutes.MQTT_DATAFORWARDING)) }
             )
         }
     }

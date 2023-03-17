@@ -69,7 +69,7 @@ fun WidgetConfigTopAppBar(
 
 @Composable
 fun LogInFirstScreen() {
-    Column() {
+    Column {
         Paragraph(
             text = stringResource(id = R.string.widgets_sign_in_first),
             modifier = Modifier.padding(RuuviStationTheme.dimensions.screenPadding)
@@ -83,7 +83,7 @@ fun LogInFirstScreen() {
 
 @Composable
 fun ForNetworkSensorsOnlyScreen() {
-    Column() {
+    Column {
         Paragraph(
             text = stringResource(id = R.string.widgets_gateway_only),
             modifier = Modifier.padding(RuuviStationTheme.dimensions.screenPadding)

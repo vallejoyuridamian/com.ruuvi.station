@@ -92,7 +92,7 @@ class ComplexWidgetConfigureViewModel(
     }
 
     private fun recalcCanBeSaved() {
-        _canBeSaved.value = _widgetItems?.value?.any { item -> item.checked && item.anySensorChecked() } ?: false
+        _canBeSaved.value = _widgetItems.value?.any { item -> item.checked && item.anySensorChecked() } ?: false
     }
 }
 

@@ -116,7 +116,7 @@ fun Body(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Column() {
+        Column {
             MyTopAppBar(title)
             Column(
                 modifier = Modifier

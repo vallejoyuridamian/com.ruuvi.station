@@ -25,7 +25,7 @@ fun HumiditySettings(
     val accuracy = viewModel.humidityAccuracy.observeAsState(Accuracy.Accuracy2)
 
     PageSurfaceWithPadding {
-        Column() {
+        Column {
             HumidityUnit(
                 allUnits = viewModel.getAllHumidityUnits(),
                 selectedUnit = unit,

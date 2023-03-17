@@ -75,14 +75,14 @@ class ComplexWidgetProvider: AppWidgetProvider() {
                 action = MANUAL_REFRESH
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             }
-            return PendingIntent.getBroadcast(context, appWidgetId, updateIntent, FLAG_IMMUTABLE)
+            return getBroadcast(context, appWidgetId, updateIntent, FLAG_IMMUTABLE)
         }
 
         private fun getPendingIntentTemplate(context: Context, appWidgetId: Int): PendingIntent {
             val itemClickIntent = Intent(context, ComplexWidgetProvider::class.java).apply {
                 action = ITEM_CLICK
             }
-            return PendingIntent.getBroadcast(context, appWidgetId, itemClickIntent, FLAG_UPDATE_CURRENT or FLAG_MUTABLE)
+            return getBroadcast(context, appWidgetId, itemClickIntent, FLAG_UPDATE_CURRENT or FLAG_MUTABLE)
         }
 
         fun updateAll(context: Context) {

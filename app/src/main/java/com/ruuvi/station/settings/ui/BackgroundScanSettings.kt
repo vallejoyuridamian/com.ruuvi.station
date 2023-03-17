@@ -29,7 +29,7 @@ fun BackgroundScanSettings(
     val showOptimizationTips = viewModel.showOptimizationTips.collectAsState()
 
     PageSurfaceWithPadding {
-        Column() {
+        Column {
             SwitchRuuvi(
                 text = stringResource(id = R.string.background_scanning),
                 checked = backgroundScanEnabled.value,

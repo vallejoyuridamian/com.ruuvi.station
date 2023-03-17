@@ -24,7 +24,7 @@ class ShakeEventListener(
         acceleration = acceleration * 0.9f + delta
         Timber.d("onSensorChanged $acceleration")
 
-        if (acceleration > 12 && lastShake?.diffGreaterThan(2500) ?: true)  {
+        if (acceleration > 12 && lastShake?.diffGreaterThan(2500) != false)  {
             shakeCount++
             lastShake = Date()
             Timber.d("Shake event detected $shakeCount")

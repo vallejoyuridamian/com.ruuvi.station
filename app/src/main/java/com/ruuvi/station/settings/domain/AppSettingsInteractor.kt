@@ -79,6 +79,27 @@ class AppSettingsInteractor(
         preferencesRepository.setDataForwardingDuringSyncEnabled(forwardingDurinSyncEnabled)
     }
 
+    // Coolgreen modifications
+    fun getMQTTDataForwardingUrl(): String =
+        preferencesRepository.getMQTTDataForwardingUrl()
+
+    fun setMQTTDataForwardingUrl(url: String) {
+        preferencesRepository.setMQTTDataForwardingUrl(url)
+    }
+
+    fun getMQTTDataForwardingPort(): String =
+            preferencesRepository.getMQTTDataForwardingPort()
+
+    fun setMQTTDataForwardingPort(port: String) {
+        preferencesRepository.setMQTTDataForwardingPort(port)
+    }
+    fun getMQTTDataForwardingEnabled():Boolean =
+            preferencesRepository.getMQTTDataForwardingEnabled()
+
+    fun setMQTTDataForwardingEnabled(mqttDataForwardingEnabled: Boolean) {
+        preferencesRepository.setMQTTDataForwardingEnabled(mqttDataForwardingEnabled)
+    }
+
     fun getDeviceId(): String =
         preferencesRepository.getDeviceId()
 

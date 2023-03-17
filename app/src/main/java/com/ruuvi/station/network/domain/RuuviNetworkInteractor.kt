@@ -141,7 +141,7 @@ class RuuviNetworkInteractor (
     fun checkSensorOwner(sensorId: String) {
         val token = getToken()?.token
         token?.let {
-            CoroutineScope(Dispatchers.IO).launch() {
+            CoroutineScope(Dispatchers.IO).launch {
                 val response = networkRepository.checkSensorOwner(sensorId, token)
                 if (response?.isSuccess() == true && response.data?.email?.isNotEmpty() == true) {
                     sensorSettingsRepository.setSensorOwner(
@@ -313,10 +313,10 @@ class RuuviNetworkInteractor (
     }
 
     fun setAlert(alarm: Alarm) {
-        if (shouldSendSensorDataToNetwork(alarm.ruuviTagId) && alarm.alarmType?.networkCode != null) {
+        if (shouldSendSensorDataToNetwork(alarm.ruuviTagId) && alarm.alarmType.networkCode != null) {
             val networkRequest = NetworkRequest(
                 NetworkRequestType.SET_ALERT,
-                alarm.ruuviTagId + alarm.alarmType?.networkCode,
+                alarm.ruuviTagId + alarm.alarmType.networkCode,
                 SetAlertRequest.getAlarmRequest(alarm)
             )
             Timber.d("setAlert $networkRequest")

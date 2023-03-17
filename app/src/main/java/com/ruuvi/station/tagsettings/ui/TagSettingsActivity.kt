@@ -226,7 +226,7 @@ class TagSettingsActivity : AppCompatActivity(R.layout.activity_tag_settings), K
             val background = imageInteractor.getImage(backgroundUri)
             binding.tagImageView.setImageBitmap(background)
         } else {
-            binding.tagImageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), Utils.getDefaultBackground(sensorState.defaultBackground)))
+            binding.tagImageView.setImageBitmap(BitmapFactory.decodeResource(resources, Utils.getDefaultBackground(sensorState.defaultBackground)))
         }
 
         binding.tagImageCameraButton.setDebouncedOnClickListener { showImageSourceSheet() }

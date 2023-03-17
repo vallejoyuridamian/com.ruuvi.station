@@ -115,7 +115,7 @@ fun ChartControlElement(
     }
 
     LaunchedEffect(key1 = true) {
-        viewModel.event.collect() { event ->
+        viewModel.event.collect { event ->
             uiEvent = event
         }
     }
@@ -254,7 +254,7 @@ fun ThreeDotsMenu(
         mutableStateOf(false)
     }
 
-    Box() {
+    Box {
         IconButton(onClick = { threeDotsMenuExpanded = !threeDotsMenuExpanded }) {
             Icon(painter = painterResource(id = R.drawable.ic_3dots),
                 contentDescription = null,

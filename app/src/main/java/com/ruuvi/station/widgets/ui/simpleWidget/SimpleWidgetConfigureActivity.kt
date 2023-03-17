@@ -58,7 +58,7 @@ class SimpleWidgetConfigureActivity : AppCompatActivity(), KodeinAware {
 
         setContent {
             RuuviTheme {
-                Column() {
+                Column {
                     WidgetConfigTopAppBar(viewModel, title = stringResource(id = R.string.select_sensor))
                     WidgetSetupScreen(viewModel)
                 }
@@ -113,7 +113,7 @@ fun SelectSensorScreen(viewModel: SimpleWidgetConfigureViewModel) {
     val gotFilteredSensors by viewModel.gotFilteredSensors.observeAsState(false)
     val selectedOption by viewModel.sensorId.observeAsState()
 
-    LazyColumn() {
+    LazyColumn {
         item {
             if (gotFilteredSensors) {
                 Paragraph(
@@ -136,7 +136,7 @@ fun SelectSensorScreen(viewModel: SimpleWidgetConfigureViewModel) {
 
 @Composable
 fun SensorCard(viewModel: SimpleWidgetConfigureViewModel, title: String, sensorId: String, isSelected: Boolean) {
-    Column() {
+    Column {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -170,7 +170,7 @@ fun WidgetTypeList(viewModel: SimpleWidgetConfigureViewModel) {
     val selectedOption by viewModel.widgetType.observeAsState()
 
     Column(modifier = Modifier.padding(start = RuuviStationTheme.dimensions.extraBig)) {
-        Row() {
+        Row {
             Paragraph(
                 text = stringResource(id = R.string.widgets_select_sensor_value_type),
                 modifier = Modifier.padding(RuuviStationTheme.dimensions.medium)

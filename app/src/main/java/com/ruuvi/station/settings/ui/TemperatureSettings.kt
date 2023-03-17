@@ -21,7 +21,7 @@ fun TemperatureSettings(
     val unit = viewModel.temperatureUnit.observeAsState(TemperatureUnit.CELSIUS)
     val accuracy = viewModel.temperatureAccuracy.observeAsState(Accuracy.Accuracy2)
     PageSurfaceWithPadding {
-        Column() {
+        Column {
             TemperatureUnit(
                 allUnits = viewModel.getAllTemperatureUnits(),
                 selectedUnit = unit,

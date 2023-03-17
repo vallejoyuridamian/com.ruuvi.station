@@ -153,6 +153,11 @@
     <string name="data_forwarding_location_enable">Send also location coordinates of this device</string>
     <string name="data_forwarding_url">Data Forwarding URL</string>
     <string name="data_forwarding_url_hint">https://your.gateway/...</string>
+    <string name="mqtt_data_forwarding_url">MQTT Data Forwarding host</string>
+    <string name="mqtt_data_forwarding_url_hint">Host</string>
+    <string name="mqtt_data_forwarding_port">MQTT Data Forwarding port</string>
+    <string name="mqtt_data_forwarding_port_hint">port</string>
+    <string name="data_forwarding_mqtt_enable">Enable MQTT Data Forwarding</string>
     <string name="data_points_read">%1$,d measurements read, saving..</string>
     <string name="day_1">1 day</string>
     <string name="day_10">10 days</string>
@@ -361,6 +366,7 @@
     <string name="settings_chart_view_period">Chart history view period</string>
     <string name="settings_chart_view_period_description">Configure the period of history to be shown on chart from 1 to 10 days.</string>
     <string name="settings_data_forwarding">Data Forwarding</string>
+    <string name="settings_mqtt_data_forwarding">MQTT Data Forwarding</string>
     <string name="settings_data_forwarding_test">Test data forwarding</string>
     <string name="settings_experimental">Experimental features</string>
     <string name="settings_gateway_details">When you add a URL here, the app will execute an HTTP POST with the linked sensors when it does background scanning. \n\nFor more info, check the documentation.</string>

@@ -1,5 +1,6 @@
 package com.ruuvi.station.settings.ui
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -36,12 +37,13 @@ class SettingsActivity : AppCompatActivity(), KodeinAware {
 
     private val appSettingsListViewModel: AppSettingsListViewModel by viewModel()
 
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, true)
 
         setContent {
-            RuuviTheme() {
+            RuuviTheme {
                 val navController = rememberAnimatedNavController()
                 val scaffoldState = rememberScaffoldState()
                 val systemUiController = rememberSystemUiController()
@@ -154,6 +156,17 @@ class SettingsActivity : AppCompatActivity(), KodeinAware {
                             DataForwardingSettings(
                                 scaffoldState = scaffoldState,
                                 viewModel = dataForwardingSettingsViewModel
+                            )
+                        }
+                        // Coolgreen modification
+                        composable(SettingsRoutes.MQTT_DATAFORWARDING,
+                                enterTransition = enterTransition,
+                                exitTransition = exitTransition
+                        ) {
+                            val mqttDataForwardingSettingsViewModel: MQTTDataForwardingSettingsViewModel by viewModel()
+                            MQTTDataForwardingSettings(
+                                    scaffoldState = scaffoldState,
+                                    viewModel = mqttDataForwardingSettingsViewModel
                             )
                         }
                     }

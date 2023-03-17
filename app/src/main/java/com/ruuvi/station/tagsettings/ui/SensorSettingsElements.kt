@@ -390,7 +390,7 @@ fun BatteryInfoItem (
 @Composable
 @Preview
 fun preview() {
-    Column() {
+    Column {
         MoreInfoItem(
             title = stringResource(id = R.string.mac_address),
             value = "sensorState.id"

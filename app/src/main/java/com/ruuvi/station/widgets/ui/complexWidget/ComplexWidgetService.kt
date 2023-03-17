@@ -26,7 +26,7 @@ import timber.log.Timber
 class ComplexWidgetService : RemoteViewsService() {
 
     override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
-        val appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
+        val appWidgetId = intent.getIntExtra(EXTRA_APPWIDGET_ID, -1)
         Timber.d("CollectionWidgetService $this $appWidgetId")
 
         return ComplexWidgetCollectionRemoteViewsFactory(applicationContext, appWidgetId)

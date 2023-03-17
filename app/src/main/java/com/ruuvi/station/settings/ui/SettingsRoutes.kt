@@ -13,6 +13,8 @@ object SettingsRoutes {
     const val CHARTS = "charts"
     const val CLOUD = "cloud"
     const val DATAFORWARDING = "dataforwarding"
+    // Coolgreen modification
+    const val MQTT_DATAFORWARDING = "mqtt_dataforwarding"
 
     fun getTitleByRoute(context: Context, route: String): String {
         return when (route) {
@@ -25,6 +27,8 @@ object SettingsRoutes {
             CHARTS -> context.getString(R.string.settings_chart)
             CLOUD -> context.getString(R.string.ruuvi_cloud)
             DATAFORWARDING -> context.getString(R.string.settings_data_forwarding)
+            // Coolgreen modification
+            MQTT_DATAFORWARDING -> context.getString(R.string.settings_mqtt_data_forwarding)
             else -> context.getString(R.string.menu_app_settings)
         }
     }

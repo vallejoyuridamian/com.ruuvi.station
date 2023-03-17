@@ -7,6 +7,7 @@ import com.ruuvi.station.app.preferences.Preferences
 import com.ruuvi.station.bluetooth.BluetoothInteractor
 import com.ruuvi.station.bluetooth.BluetoothLibrary
 import com.ruuvi.station.bluetooth.DefaultOnTagFoundListener
+import com.ruuvi.station.bluetooth.MQTTDataForwarder
 import com.ruuvi.station.bluetooth.IRuuviTagScanner
 import com.ruuvi.station.bluetooth.domain.*
 import com.ruuvi.station.bluetooth.util.ScannerSettings
@@ -24,7 +25,7 @@ object BluetoothScannerInjectionModule {
     val module = Kodein.Module(BluetoothScannerInjectionModule.javaClass.name) {
 
         bind<BluetoothInteractor>() with singleton {
-            BluetoothLibrary.getBluetoothInteractor(instance(), instance(), instance())
+            BluetoothLibrary.getBluetoothInteractor(instance(), instance(), instance(), instance())
         }
 
         bind<BluetoothGattInteractor>() with singleton { BluetoothGattInteractor(instance(), instance(), instance(), instance(), instance(), instance(), instance()) }
@@ -36,6 +37,9 @@ object BluetoothScannerInjectionModule {
         bind<DefaultOnTagFoundListener>() with singleton {
             DefaultOnTagFoundListener(instance(), instance(), instance(), instance(), instance(), instance())
         }
+
+        // Coolgreen modification
+        bind<MQTTDataForwarder>() with singleton { MQTTDataForwarder (instance(), instance())}
 
         bind<FakeScanResultsSender>() with singleton { FakeScanResultsSender(instance()) }
 

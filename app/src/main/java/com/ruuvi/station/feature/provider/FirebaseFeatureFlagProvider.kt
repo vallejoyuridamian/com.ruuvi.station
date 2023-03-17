@@ -9,7 +9,7 @@ import com.ruuvi.station.feature.data.Feature
 import com.ruuvi.station.feature.data.FeatureFlag
 import timber.log.Timber
 
-class FirebaseFeatureFlagProvider() : FeatureFlagProvider, RemoteFeatureFlagProvider {
+class FirebaseFeatureFlagProvider : FeatureFlagProvider, RemoteFeatureFlagProvider {
     private val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
 
     init {

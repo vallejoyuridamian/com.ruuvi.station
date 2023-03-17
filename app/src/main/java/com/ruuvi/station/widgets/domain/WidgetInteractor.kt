@@ -38,7 +38,7 @@ class WidgetInteractor (
             val lastMeasurement = getSensorLatestValues(sensorId)
             val result = ComplexWidgetData(
                 sensorId = sensorId,
-                displayName = sensorFav?.displayName ?: sensorId,
+                displayName = sensorFav.displayName,
                 sensorValues = listOf(),
                 updated = null
             )
@@ -162,13 +162,13 @@ class WidgetInteractor (
         if (lastDataResponse?.isSuccess() == true && lastMeasurement != null) {
             val decoded =  BluetoothLibrary.decode(sensorId, lastMeasurement.data, lastMeasurement.rssi)
             decoded.temperature?.let { temperature ->
-                decoded.temperature = temperature + (sensorInfo.offsetTemperature ?: 0.0)
+                decoded.temperature = temperature + sensorInfo.offsetTemperature
             }
             decoded.humidity?.let { humidity ->
-                decoded.humidity = humidity + (sensorInfo.offsetHumidity ?: 0.0)
+                decoded.humidity = humidity + sensorInfo.offsetHumidity
             }
             decoded.pressure?.let { pressure ->
-                decoded.pressure = pressure + (sensorInfo.offsetPressure ?: 0.0)
+                decoded.pressure = pressure + sensorInfo.offsetPressure
             }
             val updatedDate = Date(lastMeasurement.timestamp * 1000)
 
@@ -194,13 +194,13 @@ class WidgetInteractor (
             if (measurement != null) {
                 val decoded = BluetoothLibrary.decode(sensorId, measurement.data, measurement.rssi)
                 decoded.temperature?.let { temperature ->
-                    decoded.temperature = temperature + (lastData.offsetTemperature ?: 0.0)
+                    decoded.temperature = temperature + lastData.offsetTemperature
                 }
                 decoded.humidity?.let { humidity ->
-                    decoded.humidity = humidity + (lastData.offsetHumidity ?: 0.0)
+                    decoded.humidity = humidity + lastData.offsetHumidity
                 }
                 decoded.pressure?.let { pressure ->
-                    decoded.pressure = pressure + (lastData.offsetPressure ?: 0.0)
+                    decoded.pressure = pressure + lastData.offsetPressure
                 }
 
                 val updatedDate = Date(measurement.timestamp * 1000)

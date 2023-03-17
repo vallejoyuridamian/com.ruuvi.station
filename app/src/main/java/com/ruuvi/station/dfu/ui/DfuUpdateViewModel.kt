@@ -219,7 +219,7 @@ class DfuUpdateViewModel(
                 Timber.d("discovering Devices")
                 bluetoothDevicesInteractor.cancelDiscovery()
                 delay(1000)
-                bluetoothDevicesInteractor.discoverDevices() {
+                bluetoothDevicesInteractor.discoverDevices {
                     Timber.d("discoverDevices $it")
                     if (it.mac == sensorUpdateMac) {
                         _deviceDiscovered.postValue(true)
